@@ -1,0 +1,14 @@
+{{ define "main" }}
+  {{ if eq .Section "posts" }}
+    {{ partial "post.html" . }}
+    <nav class="pager" aria-label="Adjacent posts">
+      {{ with .PrevInSection }}<a href="{{ .RelPermalink }}">Previous: {{ .Title }}</a>{{ end }}
+      {{ with .NextInSection }}<a href="{{ .RelPermalink }}">Next: {{ .Title }}</a>{{ end }}
+    </nav>
+  {{ else }}
+    <article class="post">
+      <h1 class="post-title">{{ .Title }}</h1>
+      <div class="prose">{{ .Content }}</div>
+    </article>
+  {{ end }}
+{{ end }}

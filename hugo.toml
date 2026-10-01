@@ -1,0 +1,48 @@
+baseURL = "https://www.hypertext.dev/"
+locale = "en-US"
+disableKinds = ["taxonomy", "term"]
+title = "hypertext"
+
+# Posts live at /2026/10/hello-again/
+[permalinks.page]
+  posts = "/:year/:month/:slug/"
+
+[params]
+  author = "Your Name"
+  description = "Writing and links."
+
+[pagination]
+  pagerSize = 15
+
+[markup.goldmark.renderer]
+  unsafe = true   # lets you drop raw HTML into posts when Markdown isn't enough
+
+[menus]
+  [[menus.main]]
+    name = "Archive"
+    url = "/posts/"
+    weight = 1
+  [[menus.main]]
+    name = "About"
+    url = "/about/"
+    weight = 2
+  [[menus.main]]
+    name = "RSS"
+    url = "/index.xml"
+    weight = 3
+
+[outputs]
+  home = ["html", "rss"]
+  section = ["html"]
+
+[services.rss]
+  limit = 30
+
+[caches.images]
+  dir = ":cacheDir/images"
+
+# An image on its own line becomes a <figure>, with its "title" as the caption
+[markup.goldmark.parser]
+  wrapStandAloneImageWithinParagraph = false
+  [markup.goldmark.parser.attribute]
+    block = true

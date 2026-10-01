@@ -1,0 +1,115 @@
+/* hypertext — a quiet, text-first theme */
+:root {
+  --paper: #f7f7f5;
+  --ink: #1f2328;
+  --muted: #6b7178;
+  --link: #1f5f8b;
+  --link-hover: #0f3f63;
+  --rule: #dcdedf;
+  --code-bg: #ecedeb;
+  --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #16191c;
+    --ink: #d8dcdf;
+    --muted: #8b939b;
+    --link: #7fb3d8;
+    --link-hover: #a9cdea;
+    --rule: #2c3237;
+    --code-bg: #1f2428;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 112.5%; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+a:hover { color: var(--link-hover); }
+:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+
+/* Layout: name and nav in a narrow left column, one reading column beside it */
+.frame {
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 52rem) {
+  .frame {
+    grid-template-columns: 11rem minmax(0, 36rem);
+    column-gap: 3.5rem;
+    padding-top: 4rem;
+  }
+  .masthead { position: sticky; top: 4rem; align-self: start; }
+  .colophon { grid-column: 2; }
+}
+
+.site-name {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+  text-decoration: none;
+}
+.tagline { margin: 0.4rem 0 1rem; color: var(--muted); font-style: italic; font-size: 0.9rem; }
+.masthead nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; }
+@media (min-width: 52rem) { .masthead nav ul { flex-direction: column; } }
+.masthead nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
+.masthead nav a:hover { color: var(--link); text-decoration: underline; }
+
+/* Posts */
+.post + .post { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--rule); }
+.post-title, .page-title { font-size: 1.35rem; line-height: 1.3; margin: 0; font-weight: 700; }
+.post-title a { color: var(--ink); text-decoration: none; }
+.post-title a:hover { color: var(--link); text-decoration: underline; }
+.link-post .post-title > a:first-child { color: var(--link); }
+.permalink { margin-left: 0.3em; font-weight: 400; color: var(--muted) !important; }
+.dateline { margin: 0.2rem 0 1.1rem; color: var(--muted); font-size: 0.85rem; font-style: italic; }
+
+.prose > :first-child { margin-top: 0; }
+.prose p, .prose ul, .prose ol, .prose blockquote, .prose pre, .prose figure { margin: 0 0 1.1rem; }
+.prose h2 { font-size: 1.15rem; margin: 2rem 0 0.6rem; }
+.prose h3 { font-size: 1rem; margin: 1.6rem 0 0.5rem; }
+.prose blockquote {
+  margin-left: 0;
+  padding-left: 1.1rem;
+  border-left: 3px solid var(--rule);
+  color: var(--muted);
+}
+.prose img, .prose video, .media video { display: block; max-width: 100%; height: auto; border-radius: 3px; }
+.prose figure { margin-left: 0; margin-right: 0; }
+figcaption { margin-top: 0.4rem; font-size: 0.85rem; color: var(--muted); font-style: italic; }
+.prose iframe { max-width: 100%; }
+/* Hugo's built-in youtube/vimeo shortcodes */
+.prose div:has(> iframe) { margin-bottom: 1.1rem; border-radius: 3px; overflow: hidden; }
+
+code { font-family: var(--mono); font-size: 0.85em; background: var(--code-bg); padding: 0.1em 0.3em; border-radius: 3px; }
+pre { background: var(--code-bg); padding: 0.9rem 1rem; overflow-x: auto; border-radius: 3px; line-height: 1.45; }
+pre code { background: none; padding: 0; font-size: 0.82rem; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
+
+/* Archive */
+.archive-year h2 { font-size: 1rem; color: var(--muted); margin: 2rem 0 0.5rem; }
+.archive { list-style: none; padding: 0; margin: 0; }
+.archive li { display: flex; gap: 1rem; padding: 0.25rem 0; }
+.archive time { flex: 0 0 3.75rem; color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+
+.pager { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); font-size: 0.95rem; }
+.colophon { color: var(--muted); font-size: 0.85rem; }
+.colophon p { margin: 0; }

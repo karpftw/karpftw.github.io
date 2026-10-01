@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale | default "en" }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+  <div class="frame">
+    <header class="masthead">
+      <a class="site-name" href="{{ "/" | relURL }}">{{ site.Title }}</a>
+      {{ with site.Params.description }}<p class="tagline">{{ . }}</p>{{ end }}
+      <nav aria-label="Site">
+        <ul>
+          {{ range site.Menus.main }}
+          <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+      </nav>
+    </header>
+    <main id="main">
+      {{ block "main" . }}{{ end }}
+    </main>
+    <footer class="colophon">
+      <p>&copy; {{ now.Year }} {{ site.Params.author }}</p>
+    </footer>
+  </div>
+</body>
+</html>

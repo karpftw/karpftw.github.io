@@ -1,0 +1,15 @@
+{{- $isLink := isset .Params "link" -}}
+<article class="post{{ if $isLink }} link-post{{ end }}">
+  <h2 class="post-title">
+    {{- if $isLink -}}
+      <a href="{{ .Params.link }}">{{ .Title }}</a>
+      <a class="permalink" href="{{ .RelPermalink }}" title="Permalink">¶</a>
+    {{- else -}}
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{- end -}}
+  </h2>
+  <p class="dateline"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Monday, 2 January 2006" }}</time></p>
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</article>

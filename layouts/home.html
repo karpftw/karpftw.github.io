@@ -1,0 +1,15 @@
+{{ define "main" }}
+  {{ $pages := where site.RegularPages "Section" "posts" }}
+  {{ $pager := .Paginate $pages }}
+  {{ range $pager.Pages }}
+    {{ partial "post.html" . }}
+  {{ else }}
+    <p>No posts yet. Run <code>hugo new posts/my-first-post.md</code> to write one.</p>
+  {{ end }}
+  {{ if or $pager.HasPrev $pager.HasNext }}
+  <nav class="pager" aria-label="More posts">
+    {{ with $pager.Next }}<a href="{{ .URL }}">Older posts</a>{{ end }}
+    {{ with $pager.Prev }}<a href="{{ .URL }}">Newer posts</a>{{ end }}
+  </nav>
+  {{ end }}
+{{ end }}

@@ -1,0 +1,19 @@
+{{- $src := .Destination -}}
+{{- $img := .PageInner.Resources.Get $src | default (resources.Get $src) -}}
+{{- $tag := "" -}}
+{{- if and $img (in (slice "jpeg" "png" "webp" "tiff" "bmp") $img.MediaType.SubType) -}}
+  {{- if gt $img.Width 1400 -}}{{- $img = $img.Resize "1400x" -}}{{- end -}}
+  {{- $tag = printf `<img src="%s" width="%d" height="%d" alt="%s" loading="lazy" decoding="async">` $img.RelPermalink $img.Width $img.Height .PlainText -}}
+{{- else -}}
+  {{- $tag = printf `<img src="%s" alt="%s" loading="lazy">` $src .PlainText -}}
+{{- end -}}
+{{- if .IsBlock -}}
+<figure>
+  {{ $tag | safeHTML }}
+  {{- with .Title }}
+  <figcaption>{{ . | markdownify }}</figcaption>
+  {{- end }}
+</figure>
+{{- else -}}
+{{ $tag | safeHTML }}
+{{- end -}}
