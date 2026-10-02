@@ -20,7 +20,7 @@ There are no tests or linters. A successful `hugo build` with no warnings is the
 ## Architecture
 
 - **Templates** use Hugo's newer layout naming: `layouts/baseof.html`, `home.html`, `section.html` (the `/posts/` archive, grouped by year), `list.html`, `page.html`, plus `_partials/`, `_shortcodes/`, and `_markup/`. Use the underscore-prefixed directories, not the old `partials/` and `shortcodes/` names.
-- **`_partials/post.html`** renders a post on both the home page and the single-post page. When a post's front matter includes `link:`, it becomes a *link post*: the title links to the external URL and a `¶` links to the permalink.
+- **`_partials/post.html`** renders a post on both the home page and the single-post page. When a post's front matter includes `link:`, it becomes a *link post*: the title links to the external URL and a pixel-arrow SVG after it links to the permalink.
 - **`page.html`** branches on `.Section`. Posts get the post partial and prev/next navigation. Other pages, such as `content/about.md`, get a plain article.
 - **Images:** `_markup/render-image.html` resolves Markdown images as page-bundle resources first and global `assets/` second. It resizes raster images wider than 1400px and adds width/height and lazy loading. A standalone image becomes a `<figure>`, and its Markdown title becomes the `<figcaption>`. This depends on `wrapStandAloneImageWithinParagraph = false` in `hugo.toml`.
 - **Video:** `{{< video src="clip.mp4" caption="..." poster="..." >}}` (from `_shortcodes/video.html`) plays a bundle MP4. Use the built-in `youtube` and `vimeo` shortcodes for embeds.

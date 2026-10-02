@@ -105,7 +105,10 @@ a:hover { color: var(--link-hover); }
   text-underline-offset: 4px;
 }
 .link-post .post-title > a:first-child:hover { color: var(--link-hover); }
-.permalink { margin-left: 0.3em; color: var(--muted) !important; }
+.permalink { margin-left: 0.3em; white-space: nowrap; color: var(--muted) !important; }
+.permalink:hover { color: var(--link-hover) !important; }
+/* Pixel arrow drawn on a 9×8 grid; at the 30px link-post title each cell is 3px, matching the font's pixels */
+.permalink .arrow { width: 0.9em; height: 0.8em; vertical-align: -0.02em; }
 .dateline { margin: 0.3rem 0 1.1rem; color: var(--muted); font-family: var(--pixel); font-size: 20px; line-height: 1; }
 
 .prose > :first-child { margin-top: 0; }

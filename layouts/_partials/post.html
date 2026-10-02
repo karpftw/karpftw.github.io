@@ -3,7 +3,8 @@
   <h2 class="post-title">
     {{- if $isLink -}}
       <a href="{{ .Params.link }}">{{ .Title }}</a>
-      <a class="permalink" href="{{ .RelPermalink }}" title="Permalink">¶</a>
+      {{- /* no space, plus a word joiner (U+2060) before the SVG, so the arrow never wraps onto a line of its own */ -}}
+      <a class="permalink" href="{{ .RelPermalink }}" title="Permalink" aria-label="Permalink">&#8288;<svg class="arrow" viewBox="0 0 9 8" fill="currentColor" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path d="M5 0h1v1h-1zM5 1h2v1h-2zM5 2h3v1h-3zM0 3h9v1h-9zM0 4h9v1h-9zM5 5h3v1h-3zM5 6h2v1h-2zM5 7h1v1h-1z"/></svg></a>
     {{- else -}}
       <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     {{- end -}}
