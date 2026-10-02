@@ -1,7 +1,7 @@
 ---
 title: "Test Posting"
 date: 2026-10-02T10:16:59-05:00
-draft: true
+draft: false
 # link: "https://example.com/article"   # uncomment to make this a link post
 ---
 This is just a test pot.
