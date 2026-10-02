@@ -1,0 +1,35 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## What this is
+
+hypertext.dev: a Hugo blog with no theme, no Node, no Go modules, and no Sass. All templates live in `layouts/` and all styling lives in `assets/css/style.css`. Pushing to `main` builds and deploys to GitHub Pages through `.github/workflows/hugo.yaml`, which pins `HUGO_VERSION` (currently 0.167.0) and sets `TZ=America/Chicago`. The time zone affects post dates and therefore permalinks.
+
+## Commands
+
+```sh
+hugo server -D                          # local preview with drafts at http://localhost:1313
+hugo build --gc --minify                # production build into public/ (same as CI minus baseURL/cacheDir)
+hugo new posts/my-post.md               # plain post (archetypes/posts.md; draft: true)
+hugo new posts/my-post/index.md         # page bundle, for posts with images/video alongside
+```
+
+There are no tests or linters. A successful `hugo build` with no warnings is the check. `public/` and `.hugo_build.lock` are build output and are gitignored.
+
+## Architecture
+
+- **Templates** use Hugo's newer layout naming: `layouts/baseof.html`, `home.html`, `section.html` (the `/posts/` archive, grouped by year), `list.html`, `page.html`, plus `_partials/`, `_shortcodes/`, and `_markup/`. Use the underscore-prefixed directories, not the old `partials/` and `shortcodes/` names.
+- **`_partials/post.html`** renders a post on both the home page and the single-post page. When a post's front matter includes `link:`, it becomes a *link post*: the title links to the external URL and a `¶` links to the permalink.
+- **`page.html`** branches on `.Section`. Posts get the post partial and prev/next navigation. Other pages, such as `content/about.md`, get a plain article.
+- **Images:** `_markup/render-image.html` resolves Markdown images as page-bundle resources first and global `assets/` second. It resizes raster images wider than 1400px and adds width/height and lazy loading. A standalone image becomes a `<figure>`, and its Markdown title becomes the `<figcaption>`. This depends on `wrapStandAloneImageWithinParagraph = false` in `hugo.toml`.
+- **Video:** `{{< video src="clip.mp4" caption="..." poster="..." >}}` (from `_shortcodes/video.html`) plays a bundle MP4. Use the built-in `youtube` and `vimeo` shortcodes for embeds.
+- **CSS** goes through Hugo Pipes in `_partials/head.html` (minify + fingerprint + SRI). Colors are CSS variables at the top of `style.css`.
+
+## Config notes (`hugo.toml`)
+
+- Post permalinks are `/:year/:month/:slug/`.
+- Taxonomies are disabled (`disableKinds = ["taxonomy", "term"]`). There are no tags or categories.
+- `markup.goldmark.renderer.unsafe = true`, so posts can contain raw HTML.
+- The home page outputs HTML and RSS and is paginated at 15 posts. The section outputs HTML only. The nav menu is defined in `[menus]`.
+- `params.author` is still the placeholder `"Your Name"`. It is used in the footer.
