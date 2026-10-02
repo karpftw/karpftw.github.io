@@ -95,7 +95,17 @@ a:hover { color: var(--link-hover); }
 .post-title, .page-title { font-family: var(--pixel); font-size: 30px; line-height: 1.1; margin: 0; font-weight: 400; }
 .post-title a { color: var(--ink); text-decoration: none; }
 .post-title a:hover { color: var(--link); text-decoration: underline; }
-.link-post .post-title > a:first-child { color: var(--link); }
+/* Regular posts get a larger title (+4pt) than link posts. 35px is off the
+   pixel font's 10px grid, so strokes are slightly uneven but still legible. */
+.post:not(.link-post) .post-title { font-size: 35px; }
+/* Link posts: the title goes off-site, so underline it (not the ¶ permalink) */
+.link-post .post-title > a:first-child {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+.link-post .post-title > a:first-child:hover { color: var(--link-hover); }
 .permalink { margin-left: 0.3em; color: var(--muted) !important; }
 .dateline { margin: 0.3rem 0 1.1rem; color: var(--muted); font-family: var(--pixel); font-size: 20px; line-height: 1; }
 
