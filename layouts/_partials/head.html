@@ -4,6 +4,7 @@
 <meta name="description" content="{{ with .Summary }}{{ . | plainify | truncate 160 }}{{ else }}{{ site.Params.description }}{{ end }}">
 <link rel="canonical" href="{{ .Permalink }}">
 {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .Permalink }}">{{ else }}{{ with site.Home.OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .Permalink }}">{{ end }}{{ end }}
+<link rel="preload" href="{{ "fonts/jersey-10-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 {{ $css := resources.Get "css/style.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 <meta property="og:title" content="{{ .Title | default site.Title }}">

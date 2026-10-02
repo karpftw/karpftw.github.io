@@ -23,6 +23,13 @@
   }
 }
 
+/* Jersey 10 (SIL OFL, see static/fonts/OFL.txt): a pixel face that matches the logo */
+@font-face {
+  font-family: "Jersey 10";
+  src: url("/fonts/jersey-10-latin.woff2") format("woff2");
+  font-display: swap;
+}
+
 *, *::before, *::after { box-sizing: border-box; }
 
 html { font-size: 112.5%; -webkit-text-size-adjust: 100%; }
@@ -68,7 +75,14 @@ a:hover { color: var(--link-hover); }
 }
 .site-name:hover { color: var(--link); }
 .site-name .logo { display: block; width: 100%; height: auto; }
-.tagline { margin: 0.4rem 0 1rem; color: var(--muted); font-style: italic; font-size: 0.9rem; }
+.tagline {
+  margin: 0.5rem 0 1rem;
+  color: var(--muted);
+  font-family: "Jersey 10", var(--mono);
+  font-size: 20px;   /* 2× the font's pixel grid, same pixel size as the logo */
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
 .masthead nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; }
 @media (min-width: 52rem) { .masthead nav ul { flex-direction: column; } }
 .masthead nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
