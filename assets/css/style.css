@@ -9,6 +9,7 @@
   --code-bg: #ecedeb;
   --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --pixel: "Jersey 10", var(--mono);
   color-scheme: light dark;
 }
 @media (prefers-color-scheme: dark) {
@@ -78,14 +79,14 @@ a:hover { color: var(--link-hover); }
 .tagline {
   margin: 0.5rem 0 1rem;
   color: var(--muted);
-  font-family: "Jersey 10", var(--mono);
+  font-family: var(--pixel);
   font-size: 20px;   /* 2× the font's pixel grid, same pixel size as the logo */
   line-height: 1;
   letter-spacing: 0.02em;
 }
 .masthead nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; }
 @media (min-width: 52rem) { .masthead nav ul { flex-direction: column; } }
-.masthead nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
+.masthead nav a { color: var(--muted); text-decoration: none; font-family: var(--pixel); font-size: 20px; }
 .masthead nav a:hover { color: var(--link); text-decoration: underline; }
 
 /* Posts */
