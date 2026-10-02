@@ -46,3 +46,7 @@ title = "hypertext"
   wrapStandAloneImageWithinParagraph = false
   [markup.goldmark.parser.attribute]
     block = true
+
+# Emit CSS classes for syntax highlighting; the colors live in style.css
+[markup.highlight]
+  noClasses = false

@@ -1,26 +1,17 @@
-/* hypertext — a quiet, text-first theme */
+/* hypertext — colors from the Lumon theme for Omarchy (dark only).
+   Lumon's own "muted" (#4A6B80) is too dim for text, so it is used for rules
+   and --muted uses the theme's dimmer blue instead (5.2:1 on --paper). */
 :root {
-  --paper: #f7f7f5;
-  --ink: #1f2328;
-  --muted: #6b7178;
-  --link: #1f5f8b;
-  --link-hover: #0f3f63;
-  --rule: #dcdedf;
-  --code-bg: #ecedeb;
+  --paper: #1b2d40;
+  --ink: #d6e2ee;
+  --muted: #6fa4c9;
+  --link: #6fb8e3;
+  --link-hover: #b4e4f6;
+  --rule: #4a6b80;
+  --code-bg: #142230;
   --mono: "Fira Code", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --pixel: "Jersey 10", var(--mono);
-  color-scheme: light dark;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #16191c;
-    --ink: #d8dcdf;
-    --muted: #8b939b;
-    --link: #7fb3d8;
-    --link-hover: #a9cdea;
-    --rule: #2c3237;
-    --code-bg: #1f2428;
-  }
+  color-scheme: dark;
 }
 
 /* Self-hosted fonts, both SIL OFL (licenses in static/fonts/).
@@ -40,6 +31,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
+::selection { background: #4d9ed3; color: #1b2d40; }   /* Lumon selection colors */
 
 html { font-size: 112.5%; -webkit-text-size-adjust: 100%; }
 body {
@@ -127,6 +119,13 @@ figcaption { margin-top: 0.4rem; font-size: 0.8rem; color: var(--muted); }
 code { font-family: var(--mono); font-size: 0.9em; background: var(--code-bg); padding: 0.1em 0.3em; border-radius: 3px; }
 pre { background: var(--code-bg); padding: 0.9rem 1rem; overflow-x: auto; border-radius: 3px; line-height: 1.45; }
 pre code { background: none; padding: 0; font-size: 0.8rem; }
+/* Syntax highlighting (Hugo/Chroma classes) in Lumon colors; each is ≥6:1 on --code-bg */
+.chroma .c, .chroma .ch, .chroma .cm, .chroma .c1, .chroma .cs, .chroma .cp, .chroma .cpf { color: var(--muted); }
+.chroma .k, .chroma .kc, .chroma .kd, .chroma .kn, .chroma .kp, .chroma .kr, .chroma .kt, .chroma .nt { color: #8bc9eb; }
+.chroma .s, .chroma .sa, .chroma .sb, .chroma .sc, .chroma .dl, .chroma .sd, .chroma .s2, .chroma .se,
+.chroma .sh, .chroma .si, .chroma .sx, .chroma .sr, .chroma .s1, .chroma .ss { color: #b4e4f6; }
+.chroma .m, .chroma .mb, .chroma .mf, .chroma .mh, .chroma .mi, .chroma .il, .chroma .mo { color: #9dcae5; }
+.chroma .nf, .chroma .fm, .chroma .nb, .chroma .bp, .chroma .nc, .chroma .na { color: var(--link); }
 hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
 
 /* Archive */

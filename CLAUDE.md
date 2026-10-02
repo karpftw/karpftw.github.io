@@ -26,11 +26,11 @@ There are no tests or linters. A successful `hugo build` with no warnings is the
 - **Video:** `{{< video src="clip.mp4" caption="..." poster="..." >}}` (from `_shortcodes/video.html`) plays a bundle MP4. Use the built-in `youtube` and `vimeo` shortcodes for embeds.
 - **Logo:** the masthead wordmark is an inline SVG in `_partials/logo.html`, drawn on a 97×19 pixel grid in the style of the Omarchy logo. It uses `currentColor`, and the CSS shows it at exactly 2× (194px) so the pixels stay crisp.
 - **Typography:** two self-hosted SIL OFL fonts in `static/fonts/`, preloaded in `_partials/head.html`. Jersey 10 (`--pixel`) is a pixel face for the tagline, menu, titles, headings, dates, pager and footer; keep it at 20px or 30px (2× or 3× its pixel grid) or it blurs. Fira Code (`--mono`) is the body and code face.
-- **CSS** goes through Hugo Pipes in `_partials/head.html` (minify + fingerprint + SRI). Colors are CSS variables at the top of `style.css`.
+- **CSS** goes through Hugo Pipes in `_partials/head.html` (minify + fingerprint + SRI). Colors are CSS variables at the top of `style.css`, taken from the Lumon theme for Omarchy. The site is dark only; there is no light mode. Syntax highlighting emits CSS classes (`markup.highlight.noClasses = false`), styled by the `.chroma` rules in `style.css`.
 
 ## Config notes (`hugo.toml`)
 
-- Post permalinks are `/:year/:month/:slug/`.
+- Post permalinks are `/:year/:month/:slug/`. The slug comes from the title, not the folder name. Posts dated in the future are skipped unless you build with `-F`.
 - Taxonomies are disabled (`disableKinds = ["taxonomy", "term"]`). There are no tags or categories.
 - `markup.goldmark.renderer.unsafe = true`, so posts can contain raw HTML.
 - The home page outputs HTML and RSS and is paginated at 15 posts. The section outputs HTML only. The nav menu is defined in `[menus]`.
