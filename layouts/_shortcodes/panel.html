@@ -1,0 +1,7 @@
+{{/* A framed BBS-style panel. Usage: {{< panel code="MDR-01" title="Substrate" >}}markdown{{< /panel >}} */}}
+<section class="panel">
+  <h2 class="panel-title"><span class="panel-code">[{{ .Get "code" }}]</span> {{ .Get "title" }}</h2>
+  <div class="panel-body">
+    {{ .Inner | .Page.RenderString (dict "display" "block") }}
+  </div>
+</section>

@@ -1,0 +1,15 @@
+{{/* Palette swatches. Chips paint from the CSS variables; keep the hex labels in step with style.css */}}
+{{- $colors := slice
+  (dict "name" "Void" "var" "--paper" "hex" "#1b2d40")
+  (dict "name" "Deep void" "var" "--code-bg" "hex" "#142230")
+  (dict "name" "Fluorescent" "var" "--ink" "hex" "#d6e2ee")
+  (dict "name" "Signal" "var" "--link" "hex" "#6fb8e3")
+  (dict "name" "Cold" "var" "--link-hover" "hex" "#b4e4f6")
+  (dict "name" "Memo" "var" "--muted" "hex" "#6fa4c9")
+  (dict "name" "Partition" "var" "--rule" "hex" "#4a6b80")
+-}}
+<ul class="swatches">
+  {{- range $colors }}
+  <li><span class="chip" style="background: var({{ .var | safeCSS }})"></span><span class="swatch-name">{{ .name }}</span><code>{{ .hex }}</code></li>
+  {{- end }}
+</ul>

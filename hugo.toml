@@ -27,9 +27,13 @@ title = "hypertext"
     url = "/about/"
     weight = 2
   [[menus.main]]
+    name = "Colophon"
+    url = "/colophon/"
+    weight = 3
+  [[menus.main]]
     name = "RSS"
     url = "/index.xml"
-    weight = 3
+    weight = 4
 
 [outputs]
   home = ["html", "rss"]
