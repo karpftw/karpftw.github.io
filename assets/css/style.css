@@ -153,7 +153,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
 /* Colophon (layouts/colophon.html): BBS session meets Macrodata Refinement.
    Decorative pieces are aria-hidden; all animation stops under reduced motion. */
 .colophon-page .page-title { font-size: 40px; }
-.colophon-file { margin: 0.4rem 0 0; color: var(--muted); font-family: var(--pixel); font-size: 20px; line-height: 1.2; }
+.colophon-file, .file-line { margin: 0.4rem 0 0; color: var(--muted); font-family: var(--pixel); font-size: 20px; line-height: 1.2; }
 
 .handshake {
   margin: 0 0 2rem;
@@ -259,6 +259,18 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
 }
 .colophon-exit { margin: 0; font-family: var(--pixel); font-size: 20px; }
 
+/* 404 (layouts/404.html) */
+.err-digits { display: block; width: 186px; height: 96px; margin: 0 0 1.75rem; color: var(--ink); }   /* 6× the 31×16 grid */
+.err-zero { fill: var(--link); animation: flicker 4s steps(1) infinite; }
+@keyframes flicker { 0%, 86%, 92%, 100% { opacity: 1; } 88%, 94% { opacity: 0.25; } }
+.error-page .page-title { font-size: 40px; }
+.error-page .prose { margin-top: 1.5rem; }
+.menu-keys { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 0.6rem 1.5rem; }
+.menu-keys a { color: var(--ink); text-decoration: none; font-family: var(--pixel); font-size: 20px; line-height: 1.4; }
+.menu-keys .key { color: var(--link); }
+.menu-keys a:hover { color: var(--link-hover); text-decoration: underline; }
+.error-signoff { margin: 0; color: var(--muted); font-family: var(--pixel); font-size: 20px; }
+
 @media (prefers-reduced-motion: reduce) {
-  .colophon-page *, .colophon-page *::before, .colophon-page *::after { animation: none !important; }
+  *, *::before, *::after { animation: none !important; }
 }
