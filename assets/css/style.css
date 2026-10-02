@@ -82,6 +82,7 @@ a:hover { color: var(--link-hover); }
   color: var(--muted);
   font-family: var(--pixel);
   font-size: 20px;   /* 2× the font's pixel grid, same pixel size as the logo */
+  font-style: italic;   /* Jersey 10 has no italic, so the browser slants it */
   line-height: 1;
   letter-spacing: 0.02em;
 }
