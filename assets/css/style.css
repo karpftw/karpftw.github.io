@@ -58,15 +58,16 @@ a:hover { color: var(--link-hover); }
   .colophon { grid-column: 2; }
 }
 
+/* Pixel-grid wordmark in the style of the Omarchy logo; drawn in _partials/logo.html */
 .site-name {
   display: block;
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.1;
+  width: 194px;   /* exactly 2× the 97-unit grid so pixels stay crisp */
+  max-width: 100%;
   color: var(--ink);
   text-decoration: none;
 }
+.site-name:hover { color: var(--link); }
+.site-name .logo { display: block; width: 100%; height: auto; }
 .tagline { margin: 0.4rem 0 1rem; color: var(--muted); font-style: italic; font-size: 0.9rem; }
 .masthead nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; }
 @media (min-width: 52rem) { .masthead nav ul { flex-direction: column; } }

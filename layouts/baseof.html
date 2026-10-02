@@ -6,7 +6,7 @@
 <body>
   <div class="frame">
     <header class="masthead">
-      <a class="site-name" href="{{ "/" | relURL }}">{{ site.Title }}</a>
+      <a class="site-name" href="{{ "/" | relURL }}" aria-label="{{ site.Title }}">{{ partial "logo.html" . }}</a>
       {{ with site.Params.description }}<p class="tagline">{{ . }}</p>{{ end }}
       <nav aria-label="Site">
         <ul>
