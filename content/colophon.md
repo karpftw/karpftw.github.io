@@ -36,9 +36,6 @@ Drafting
 
 Version control
 : git, single branch, linear history
-
-Engineering liaison
-: Claude Code, an assistant that never clocks out
 {{< /panel >}}
 
 {{< panel code="O&D-03" title="Typography" >}}
