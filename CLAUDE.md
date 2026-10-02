@@ -24,7 +24,7 @@ There are no tests or linters. A successful `hugo build` with no warnings is the
 - **`page.html`** branches on `.Section`. Posts get the post partial and prev/next navigation. Other pages, such as `content/about.md`, get a plain article.
 - **Images:** `_markup/render-image.html` resolves Markdown images as page-bundle resources first and global `assets/` second. It resizes raster images wider than 1400px and adds width/height and lazy loading. A standalone image becomes a `<figure>`, and its Markdown title becomes the `<figcaption>`. This depends on `wrapStandAloneImageWithinParagraph = false` in `hugo.toml`.
 - **Video:** `{{< video src="clip.mp4" caption="..." poster="..." >}}` (from `_shortcodes/video.html`) plays a bundle MP4. Use the built-in `youtube` and `vimeo` shortcodes for embeds.
-- **Logo:** the masthead wordmark is an inline SVG in `_partials/logo.html`, drawn on a 97×19 pixel grid in the style of the Omarchy logo. It uses `currentColor`, and the CSS shows it at exactly 2× (194px) so the pixels stay crisp.
+- **Logo:** the masthead wordmark is an inline SVG in `_partials/logo.html`, drawn on a 97×17 pixel grid in the style of the Omarchy logo. It uses `currentColor`, and the CSS shows it at exactly 2× (194px) so the pixels stay crisp.
 - **CSS** goes through Hugo Pipes in `_partials/head.html` (minify + fingerprint + SRI). Colors are CSS variables at the top of `style.css`.
 
 ## Config notes (`hugo.toml`)
