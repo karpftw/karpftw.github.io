@@ -8,7 +8,7 @@ title = "hypertext"
   posts = "/:year/:month/:slug/"
 
 [params]
-  author = "Your Name"
+  author = "Ryan Karpowicz"
   description = "Writing and links."
 
 [pagination]

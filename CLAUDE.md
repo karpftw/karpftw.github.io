@@ -32,4 +32,3 @@ There are no tests or linters. A successful `hugo build` with no warnings is the
 - Taxonomies are disabled (`disableKinds = ["taxonomy", "term"]`). There are no tags or categories.
 - `markup.goldmark.renderer.unsafe = true`, so posts can contain raw HTML.
 - The home page outputs HTML and RSS and is paginated at 15 posts. The section outputs HTML only. The nav menu is defined in `[menus]`.
-- `params.author` is still the placeholder `"Your Name"`. It is used in the footer.
