@@ -1,0 +1,43 @@
+{{/* About page as a Severance-style personnel file. Fields come from the page's
+     `dossier` front matter; a field with `redacted: true` renders as a bar. The notes
+     are the page content. Shares .handshake, .panel and .status-bar with the colophon. */}}
+{{ define "main" }}
+<article class="dossier">
+
+  <pre class="handshake" aria-hidden="true">QUERY PERSONNEL DATABASE ........ 1 RECORD
+OPENING FILE {{ .Params.file_no }}
+ACCESS LEVEL: PUBLIC<span class="cursor"></span></pre>
+
+  <header>
+    <h1 class="page-title">{{ .Title }}</h1>
+    <p class="file-line">PERSONNEL FILE · {{ .Params.file_no }} · CLEARANCE: PUBLIC</p>
+  </header>
+
+  <section class="panel dossier-card">
+    <h2 class="panel-title"><span class="panel-code">[{{ .Params.file_no }}]</span> Subject</h2>
+    <figure class="portrait-frame">
+      {{ partial "portrait.html" . }}
+      <figcaption>PHOTO ON FILE · LIKENESS APPROXIMATE</figcaption>
+    </figure>
+    <dl class="dossier-fields">
+      {{- range .Params.dossier }}
+      <dt>{{ .label }}</dt>
+      <dd>{{ if .redacted }}<span class="redacted" title="Redacted">redacted</span>{{ else }}{{ .value | markdownify }}{{ end }}</dd>
+      {{- end }}
+    </dl>
+  </section>
+
+  <section class="panel">
+    <h2 class="panel-title"><span class="panel-code">[{{ .Params.file_no }}-N]</span> Notes</h2>
+    <div class="prose">
+      {{ .Content }}
+    </div>
+  </section>
+
+  <p class="status-bar" aria-hidden="true">
+    <span>FILE {{ .Params.file_no }}</span><span>RECORD 1 OF 1</span><span>END OF FILE</span>
+  </p>
+  <p class="error-signoff">Discrepancies should be reported to your supervisor.</p>
+
+</article>
+{{ end }}
