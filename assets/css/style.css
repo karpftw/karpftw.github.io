@@ -133,8 +133,7 @@ pre code { background: none; padding: 0; font-size: 0.8rem; }
 .chroma .nf, .chroma .fm, .chroma .nb, .chroma .bp, .chroma .nc, .chroma .na { color: var(--link); }
 hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
 
-/* Archive */
-.archive-year h2 { font-family: var(--pixel); font-size: 30px; font-weight: 400; line-height: 1.1; color: var(--muted); margin: 2rem 0 0.5rem; }
+/* Simple lists (layouts/list.html) */
 .archive { list-style: none; padding: 0; margin: 0; }
 .archive li { display: flex; gap: 1rem; padding: 0.25rem 0; }
 .archive time { flex: 0 0 3.75rem; color: var(--muted); font-family: var(--pixel); font-size: 20px; line-height: 1.5; }
@@ -263,6 +262,24 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
 .menu-keys .key { color: var(--link); }
 .menu-keys a:hover { color: var(--link-hover); text-decoration: underline; }
 .error-signoff { margin: 0; color: var(--muted); font-family: var(--pixel); font-size: 20px; }
+
+/* Archive (layouts/section.html): BBS file-area listing */
+.archive-page .page-title { font-size: 40px; }
+.file-list { width: 100%; border-collapse: collapse; }
+.file-list th, .file-list td { padding: 0.45rem 0.5rem; text-align: left; vertical-align: baseline; border-top: 1px dashed var(--rule); }
+.file-list thead th { border-top: 0; padding-top: 0; color: var(--muted); font-family: var(--pixel); font-size: 20px; font-weight: 400; line-height: 1; text-transform: uppercase; }
+.file-list td:not(.col-title) { color: var(--muted); font-family: var(--pixel); font-size: 20px; line-height: 1.2; white-space: nowrap; }
+.file-list .col-type { color: var(--link); }
+.file-list .col-title { width: 100%; }
+.file-list .col-title a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--rule); }
+/* Selection bar: the whole row inverts while its link is hovered or focused */
+.file-list tbody tr:has(a:hover, a:focus-visible) { background: var(--link); }
+.file-list tbody tr:has(a:hover, a:focus-visible) td,
+.file-list tbody tr:has(a:hover, a:focus-visible) a { color: var(--paper); }
+.file-list a:focus-visible { outline: none; }
+@media (max-width: 34rem) {
+  .file-list .col-no, .file-list .col-size { display: none; }
+}
 
 /* About page dossier (layouts/dossier.html) */
 .dossier .page-title { font-size: 40px; }

@@ -1,16 +1,47 @@
+{{/* /posts/ archive as a BBS file-area listing, one framed panel per year.
+     TYPE is LNK for link posts, TXT otherwise; SIZE is the word count. */}}
 {{ define "main" }}
-  <h1 class="page-title">Archive</h1>
-  {{ range .Pages.GroupByDate "2006" }}
-    <section class="archive-year">
-      <h2>{{ .Key }}</h2>
-      <ul class="archive">
-        {{ range .Pages }}
-        <li>
-          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan" }}</time>
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </li>
-        {{ end }}
-      </ul>
-    </section>
-  {{ end }}
+{{- $total := len .Pages -}}
+{{- $words := 0 -}}
+{{- range .Pages }}{{ $words = add $words .WordCount }}{{ end -}}
+<article class="archive-page">
+
+  <pre class="handshake" aria-hidden="true">LIST FILES IN AREA: POSTS ........ {{ $total }} FOUND
+SORT ORDER: NEWEST FIRST<span class="cursor"></span></pre>
+
+  <header>
+    <h1 class="page-title">Archive</h1>
+    <p class="file-line">FILE AREA 01 · {{ $total }} {{ cond (eq $total 1) "FILE" "FILES" }} · {{ lang.FormatNumber 0 $words }} WORDS ON FILE</p>
+  </header>
+
+  {{- $n := $total }}
+  {{- range .Pages.GroupByDate "2006" }}
+  <section class="panel">
+    <h2 class="panel-title"><span class="panel-code">[{{ .Key }}]</span> {{ len .Pages }} {{ cond (eq (len .Pages) 1) "file" "files" }}</h2>
+    <table class="file-list">
+      <thead>
+        <tr><th class="col-no" scope="col">No.</th><th scope="col">Date</th><th scope="col">Type</th><th class="col-size" scope="col">Size</th><th scope="col">Title</th></tr>
+      </thead>
+      <tbody>
+        {{- range .Pages }}
+        <tr>
+          <td class="col-no">{{ printf "%03d" $n }}</td>
+          <td><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "01-02-06" }}</time></td>
+          <td class="col-type">{{ if isset .Params "link" }}LNK{{ else }}TXT{{ end }}</td>
+          <td class="col-size">{{ .WordCount }}w</td>
+          <td class="col-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+        </tr>
+        {{- $n = sub $n 1 }}
+        {{- end }}
+      </tbody>
+    </table>
+  </section>
+  {{- end }}
+
+  <p class="status-bar" aria-hidden="true">
+    <span>AREA 01: POSTS</span><span>{{ $total }} FILES</span><span>[Q] QUIT</span>
+  </p>
+  <p class="error-signoff">TXT is a post. LNK points somewhere else.</p>
+
+</article>
 {{ end }}
