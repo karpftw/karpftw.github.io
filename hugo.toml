@@ -9,7 +9,7 @@ title = "hypertext"
 
 [params]
   author = "Ryan Karpowicz"
-  description = "Writing and links."
+  description = "writing and links"
 
 [pagination]
   pagerSize = 15
