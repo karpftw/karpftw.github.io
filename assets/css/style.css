@@ -7,8 +7,7 @@
   --link-hover: #0f3f63;
   --rule: #dcdedf;
   --code-bg: #ecedeb;
-  --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
-  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --mono: "Fira Code", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --pixel: "Jersey 10", var(--mono);
   color-scheme: light dark;
 }
@@ -24,10 +23,19 @@
   }
 }
 
-/* Jersey 10 (SIL OFL, see static/fonts/OFL.txt): a pixel face that matches the logo */
+/* Self-hosted fonts, both SIL OFL (licenses in static/fonts/).
+   Jersey 10 is a pixel face that matches the logo; it is only legible at
+   multiples of 10px, so every use below is 20px or 30px.
+   Fira Code is the body face. */
 @font-face {
   font-family: "Jersey 10";
   src: url("/fonts/jersey-10-latin.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fira Code";
+  src: url("/fonts/fira-code-latin.woff2") format("woff2");
+  font-weight: 300 700;
   font-display: swap;
 }
 
@@ -38,8 +46,9 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--serif);
-  line-height: 1.6;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  line-height: 1.7;
   text-rendering: optimizeLegibility;
 }
 
@@ -91,17 +100,17 @@ a:hover { color: var(--link-hover); }
 
 /* Posts */
 .post + .post { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--rule); }
-.post-title, .page-title { font-size: 1.35rem; line-height: 1.3; margin: 0; font-weight: 700; }
+.post-title, .page-title { font-family: var(--pixel); font-size: 30px; line-height: 1.1; margin: 0; font-weight: 400; }
 .post-title a { color: var(--ink); text-decoration: none; }
 .post-title a:hover { color: var(--link); text-decoration: underline; }
 .link-post .post-title > a:first-child { color: var(--link); }
-.permalink { margin-left: 0.3em; font-weight: 400; color: var(--muted) !important; }
-.dateline { margin: 0.2rem 0 1.1rem; color: var(--muted); font-size: 0.85rem; font-style: italic; }
+.permalink { margin-left: 0.3em; color: var(--muted) !important; }
+.dateline { margin: 0.3rem 0 1.1rem; color: var(--muted); font-family: var(--pixel); font-size: 20px; line-height: 1; }
 
 .prose > :first-child { margin-top: 0; }
 .prose p, .prose ul, .prose ol, .prose blockquote, .prose pre, .prose figure { margin: 0 0 1.1rem; }
-.prose h2 { font-size: 1.15rem; margin: 2rem 0 0.6rem; }
-.prose h3 { font-size: 1rem; margin: 1.6rem 0 0.5rem; }
+.prose h2 { font-family: var(--pixel); font-size: 30px; font-weight: 400; line-height: 1.1; margin: 2rem 0 0.6rem; }
+.prose h3 { font-family: var(--pixel); font-size: 20px; font-weight: 400; line-height: 1.1; margin: 1.6rem 0 0.5rem; }
 .prose blockquote {
   margin-left: 0;
   padding-left: 1.1rem;
@@ -110,22 +119,22 @@ a:hover { color: var(--link-hover); }
 }
 .prose img, .prose video, .media video { display: block; max-width: 100%; height: auto; border-radius: 3px; }
 .prose figure { margin-left: 0; margin-right: 0; }
-figcaption { margin-top: 0.4rem; font-size: 0.85rem; color: var(--muted); font-style: italic; }
+figcaption { margin-top: 0.4rem; font-size: 0.8rem; color: var(--muted); }
 .prose iframe { max-width: 100%; }
 /* Hugo's built-in youtube/vimeo shortcodes */
 .prose div:has(> iframe) { margin-bottom: 1.1rem; border-radius: 3px; overflow: hidden; }
 
-code { font-family: var(--mono); font-size: 0.85em; background: var(--code-bg); padding: 0.1em 0.3em; border-radius: 3px; }
+code { font-family: var(--mono); font-size: 0.9em; background: var(--code-bg); padding: 0.1em 0.3em; border-radius: 3px; }
 pre { background: var(--code-bg); padding: 0.9rem 1rem; overflow-x: auto; border-radius: 3px; line-height: 1.45; }
-pre code { background: none; padding: 0; font-size: 0.82rem; }
+pre code { background: none; padding: 0; font-size: 0.8rem; }
 hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
 
 /* Archive */
-.archive-year h2 { font-size: 1rem; color: var(--muted); margin: 2rem 0 0.5rem; }
+.archive-year h2 { font-family: var(--pixel); font-size: 30px; font-weight: 400; line-height: 1.1; color: var(--muted); margin: 2rem 0 0.5rem; }
 .archive { list-style: none; padding: 0; margin: 0; }
 .archive li { display: flex; gap: 1rem; padding: 0.25rem 0; }
-.archive time { flex: 0 0 3.75rem; color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+.archive time { flex: 0 0 3.75rem; color: var(--muted); font-family: var(--pixel); font-size: 20px; line-height: 1.5; }
 
-.pager { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); font-size: 0.95rem; }
-.colophon { color: var(--muted); font-size: 0.85rem; }
+.pager { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); font-family: var(--pixel); font-size: 20px; }
+.colophon { color: var(--muted); font-family: var(--pixel); font-size: 20px; }
 .colophon p { margin: 0; }
