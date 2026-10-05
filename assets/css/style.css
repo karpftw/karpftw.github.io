@@ -79,7 +79,7 @@ a:hover { color: var(--link-hover); }
     column-gap: 3.5rem;
     padding-top: 4rem;
   }
-  .masthead { position: sticky; top: 4rem; align-self: start; }
+  .masthead { position: sticky; top: calc(4rem + 38px); align-self: start; }   /* frame padding-top + the fixed bar, so it never moves */
   .colophon { grid-column: 2; }
 }
 
