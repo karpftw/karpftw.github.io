@@ -44,6 +44,17 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Full-width bar across the top: the wordmark's five gradient bands (#logo-gradient
+   in _partials/logo.html) at the logo's 2× size, so 38px tall in 8px steps. Keep the
+   colors and stops in step with the logo. */
+body::before {
+  content: "";
+  display: block;
+  height: 38px;
+  background: linear-gradient(to bottom,
+    #f2fcff 0 8px, #c1e9f8 8px 16px, #96d1ee 16px 24px, #6cb4df 24px 32px, #4d86b0 32px 38px);
+}
+
 a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
 a:hover { color: var(--link-hover); }
 :focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
