@@ -33,12 +33,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 ::selection { background: #4d9ed3; color: #1b2d40; }   /* Lumon selection colors */
 
-html {
-  font-size: 112.5%;
-  -webkit-text-size-adjust: 100%;
-  scroll-padding-top: 38px;   /* anchor jumps land below the fixed bar */
-  scrollbar-gutter: stable;   /* short pages (the archive) keep the scrollbar's space, so the centered frame doesn't shift */
-}
+html { font-size: 112.5%; -webkit-text-size-adjust: 100%; scroll-padding-top: 38px; }   /* anchor jumps land below the fixed bar */
 body {
   margin: 0;
   padding-top: 38px;   /* room for the fixed gradient bar (body::before) */
