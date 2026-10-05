@@ -33,9 +33,10 @@
 *, *::before, *::after { box-sizing: border-box; }
 ::selection { background: #4d9ed3; color: #1b2d40; }   /* Lumon selection colors */
 
-html { font-size: 112.5%; -webkit-text-size-adjust: 100%; }
+html { font-size: 112.5%; -webkit-text-size-adjust: 100%; scroll-padding-top: 38px; }   /* anchor jumps land below the fixed bar */
 body {
   margin: 0;
+  padding-top: 38px;   /* room for the fixed gradient bar (body::before) */
   background: var(--paper);
   color: var(--ink);
   font-family: var(--mono);
@@ -49,7 +50,11 @@ body {
    colors and stops in step with the logo. */
 body::before {
   content: "";
-  display: block;
+  position: fixed;   /* stays put while the page scrolls under it; body padding-top clears it */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
   height: 38px;
   background: linear-gradient(to bottom,
     #f2fcff 0 8px, #c1e9f8 8px 16px, #96d1ee 16px 24px, #6cb4df 24px 32px, #4d86b0 32px 38px);
