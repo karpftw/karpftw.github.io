@@ -11,13 +11,19 @@
   --code-bg: #142230;
   --mono: "Fira Code", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --pixel: "Jersey 10", var(--mono);
+  --sans: Verdana, "DejaVu Sans", var(--mono);   /* Verdana where installed (Windows, Apple), else self-hosted DejaVu Sans */
+  --geometric: Futura, "Futura PT", Jost, var(--mono);   /* Futura where installed (Apple devices), else self-hosted Jost */
   color-scheme: dark;
 }
 
-/* Self-hosted fonts, both SIL OFL (licenses in static/fonts/).
+/* Self-hosted fonts (licenses in static/fonts/): Jersey 10, Fira Code and Jost
+   are SIL OFL; DejaVu Sans is under the Bitstream Vera license.
    Jersey 10 is a pixel face that matches the logo; it is only legible at
    multiples of 10px, so every use below is 20px or 30px.
-   Fira Code is the body face. */
+   Fira Code is the body face. Jost is a free Futura-style face, the fallback
+   for post titles and dates on systems without Futura. DejaVu Sans, a Vera
+   derivative close to Verdana, is the post and page text fallback on systems
+   without Verdana; its files are subset to Latin to keep them small. */
 @font-face {
   font-family: "Jersey 10";
   src: url("/fonts/jersey-10-latin.woff2") format("woff2");
@@ -27,6 +33,40 @@
   font-family: "Fira Code";
   src: url("/fonts/fira-code-latin.woff2") format("woff2");
   font-weight: 300 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Jost";
+  src: url("/fonts/jost-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DejaVu Sans";
+  src: url("/fonts/dejavu-sans-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DejaVu Sans";
+  src: url("/fonts/dejavu-sans-latin-400-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DejaVu Sans";
+  src: url("/fonts/dejavu-sans-latin-700-normal.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DejaVu Sans";
+  src: url("/fonts/dejavu-sans-latin-700-italic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -96,16 +136,17 @@ a:hover { color: var(--link-hover); }
 .masthead nav { margin-top: 1.25rem; }
 .masthead nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; }
 @media (min-width: 52rem) { .masthead nav ul { flex-direction: column; } }
-.masthead nav a { color: var(--muted); text-decoration: none; font-family: var(--pixel); font-size: 20px; }
+.masthead nav a { color: var(--muted); text-decoration: none; font-family: var(--geometric); font-size: 18px; font-weight: 500; }
 .masthead nav a:hover { color: var(--link); text-decoration: underline; }
 
 /* Posts */
 .post + .post { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--rule); }
 .post-title, .page-title { font-family: var(--pixel); font-size: 30px; line-height: 1.1; margin: 0; font-weight: 400; }
+.post-title { font-family: var(--geometric); font-size: 24px; font-weight: 500; }
 .post-title a { color: var(--ink); text-decoration: none; }
 .post-title a:hover { color: var(--link); text-decoration: underline; }
-/* Regular posts get a larger title than link posts (4× the pixel grid) */
-.post:not(.link-post) .post-title { font-size: 40px; }
+/* Regular posts get a larger title than link posts */
+.post:not(.link-post) .post-title { font-size: 30px; }
 /* Link posts: the title goes off-site, so underline it (not the ¶ permalink) */
 .link-post .post-title > a:first-child {
   color: var(--link);
@@ -116,10 +157,11 @@ a:hover { color: var(--link-hover); }
 .link-post .post-title > a:first-child:hover { color: var(--link-hover); }
 .permalink { margin-left: 0.3em; white-space: nowrap; color: var(--muted) !important; }
 .permalink:hover { color: var(--link-hover) !important; }
-/* Pixel arrow drawn on a 5×5 grid; at the 30px link-post title each cell is 3px, matching the font's pixels */
+/* Pixel arrow drawn on a 5×5 grid; at the 24px link-post title each cell is 2.4px */
 .permalink .arrow { width: 0.5em; height: 0.5em; vertical-align: 0.1em; }
-.dateline { margin: 0.3rem 0 1.1rem; color: var(--muted); font-family: var(--pixel); font-size: 20px; line-height: 1; }
+.dateline { margin: 0.5rem 0 1.1rem; color: var(--muted); font-family: var(--geometric); font-size: 16px; line-height: 1.2; }
 
+.prose { font-family: var(--sans); }
 .prose > :first-child { margin-top: 0; }
 .prose p, .prose ul, .prose ol, .prose blockquote, .prose pre, .prose figure { margin: 0 0 1.1rem; }
 .prose h2 { font-family: var(--pixel); font-size: 30px; font-weight: 400; line-height: 1.1; margin: 2rem 0 0.6rem; }
@@ -154,8 +196,8 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
 .archive li { display: flex; gap: 1rem; padding: 0.25rem 0; }
 .archive time { flex: 0 0 3.75rem; color: var(--muted); font-family: var(--pixel); font-size: 20px; line-height: 1.5; }
 
-.pager { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); font-family: var(--pixel); font-size: 20px; }
-.colophon { color: var(--muted); font-family: var(--pixel); font-size: 20px; }
+.pager { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); font-family: var(--geometric); font-size: 16px; }
+.colophon { color: var(--muted); font-family: var(--geometric); font-size: 16px; }
 .colophon p { margin: 0; }
 
 /* Colophon (layouts/colophon.html): BBS session meets Macrodata Refinement.
@@ -241,6 +283,8 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
 .specimen { margin: 1.25rem 0 0.25rem; line-height: 1.2; overflow-wrap: anywhere; }
 .specimen-pixel { font-family: var(--pixel); font-size: 40px; color: var(--ink); }
 .specimen-mono { font-family: var(--mono); font-size: 1.4rem; color: var(--link); }
+.specimen-geometric { font-family: var(--geometric); font-size: 30px; font-weight: 500; color: var(--ink); }
+.specimen-sans { font-family: var(--sans); font-size: 1.4rem; color: var(--link); }
 
 .swatches { list-style: none; padding: 0; margin: 1.25rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr)); gap: 0.75rem; }
 .swatches li { border: 2px solid var(--rule); padding: 0.5rem; }

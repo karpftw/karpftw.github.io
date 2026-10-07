@@ -1,13 +1,7 @@
-{{/* Colophon page: a dial-up BBS session crossed with a Severance refinement terminal.
+{{/* Colophon page: a Severance refinement terminal with a BBS status bar.
      Text lives in content/colophon.md; this template adds the decorative chrome. */}}
 {{ define "main" }}
 <article class="colophon-page">
-
-  <pre class="handshake" aria-hidden="true">ATDT 555-0197
-CONNECT 14400/ARQ/V42BIS
-HYPERTEXT BBS · NODE 1 OF 1 · SYSOP {{ site.Params.author | upper }}
-ANSI GRAPHICS DETECTED
-LOADING COLOPHON.TXT ........ OK<span class="cursor"></span></pre>
 
   <header class="colophon-head">
     <h1 class="page-title">{{ .Title }}</h1>
