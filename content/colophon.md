@@ -39,30 +39,20 @@ Version control
 {{< /panel >}}
 
 {{< panel code="O&D-03" title="Typography" >}}
-Four typefaces are in service, all self-hosted, so no font foundry is told when you visit. Two more are borrowed from your own machine when it already has them.
+Two typefaces are in service, both self-hosted, so no font foundry is told when you visit.
 
-<p class="specimen specimen-geometric" aria-hidden="true">Hypertext · 0123456789</p>
+<p class="specimen specimen-sans" aria-hidden="true">Geist · 0123456789</p>
 
 Title face
-: Futura by Paul Renner, where your system has it installed, as Apple devices do. Elsewhere, Jost by Owen Earl, a free face drawn in Futura's image. It sets post titles, dates, the menu, the pager and the footer.
+: Geist by Vercel. A clean grotesque that sets post and page titles, headings and labels.
 
-<p class="specimen specimen-sans" aria-hidden="true">Refined text · 0123456789</p>
+<p class="specimen specimen-mono" aria-hidden="true">JetBrains Mono -> 0O 1lI {}[] !=</p>
 
 Text face
-: Verdana by Matthew Carter, where installed, as on Windows and Apple devices. Elsewhere, DejaVu Sans, a descendant of Bitstream Vera, trimmed to Latin characters to keep it light. It sets the body of every post and page, at 16 pixels with generous leading.
-
-<p class="specimen specimen-pixel" aria-hidden="true">Jersey 10 · 0123456789</p>
-
-Display face
-: Jersey 10 by The Soft Type Project. A bitmap-born face rendered only at 20, 30 and 40 pixels, multiples of its 10-pixel grid, so that every stroke lands on a whole screen pixel. It sets page titles, headings and file listings.
-
-<p class="specimen specimen-mono" aria-hidden="true">Fira Code -> 0O 1lI {}[] !=</p>
-
-Code face
-: Fira Code by Nikita Prokopov and contributors. A monospaced face built for terminals, kept for code and the remaining fine print.
+: JetBrains Mono by JetBrains. A monospaced face built for code, enlisted here for everything else too: long-form reading, the menu, dates and fine print.
 
 Licensing
-: Jersey 10, Jost and Fira Code under the SIL Open Font License 1.1; DejaVu Sans under the Bitstream Vera license. Futura and Verdana are never shipped.
+: Both under the SIL Open Font License 1.1
 {{< /panel >}}
 
 {{< panel code="O&D-04" title="Chromatics" >}}
@@ -95,7 +85,7 @@ Clock
 : America/Chicago, which decides what day every post was written
 
 Payload
-: About 105 KB compressed for the front page, most of it the four fonts
+: About 75 KB compressed for the front page, most of it the two fonts
 {{< /panel >}}
 
 {{< panel code="WSD-07" title="Surveillance" >}}
@@ -114,12 +104,12 @@ The [RSS feed](/index.xml) carries the latest 30 posts. Subscribe in any feed re
 - [Hugo](https://gohugo.io/), for compiling the archive
 - [Omarchy](https://omarchy.org/), for the wordmark's inspiration and a calm place to work
 - The [Lumon theme](https://github.com/OldJobobo/omarchy-lumon-theme) by OldJobobo, for every color
-- [Jersey 10](https://github.com/scfried/soft-type-jersey), [Jost](https://github.com/indestructible-type/Jost), [DejaVu Sans](https://dejavu-fonts.github.io/) and [Fira Code](https://github.com/tonsky/FiraCode), for the letters
+- [Geist](https://github.com/vercel/geist-font) and [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono), for the letters, and omarchy.org for the way they are paired
 - *Severance*, for the mood. This site is not affiliated with Lumon Industries, which does not exist.
 {{< /panel >}}
 
 {{< panel code="LGL-11" title="Terms" >}}
-Words and pictures © Ryan Karpowicz. Fonts are used under the SIL Open Font License 1.1 and the Bitstream Vera license; the license texts ship alongside them in `/fonts/`.
+Words and pictures © Ryan Karpowicz. Fonts are used under the SIL Open Font License 1.1; the license texts ship alongside them in `/fonts/`.
 {{< /panel >}}
 
 Please enjoy each colophon entry equally.
