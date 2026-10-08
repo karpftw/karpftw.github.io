@@ -39,20 +39,25 @@ Version control
 {{< /panel >}}
 
 {{< panel code="O&D-03" title="Typography" >}}
-Two typefaces are in service, both self-hosted, so no font foundry is told when you visit.
+Three typefaces are in service, all self-hosted, so no font foundry is told when you visit. Each has one job.
 
-<p class="specimen specimen-sans" aria-hidden="true">Geist · 0123456789</p>
+<p class="specimen specimen-display" aria-hidden="true">Space Grotesk 0123456789</p>
 
-Title face
-: Geist by Vercel. A clean grotesque that sets post and page titles, headings and labels.
+Display face
+: Space Grotesk by Florian Karsten, a geometric grotesque with a technical edge. It sets post and page titles and headings.
 
-<p class="specimen specimen-mono" aria-hidden="true">JetBrains Mono -> 0O 1lI {}[] !=</p>
+<p class="specimen specimen-sans" aria-hidden="true">IBM Plex Sans · Refined text</p>
 
 Text face
-: JetBrains Mono by JetBrains. A monospaced face built for code, enlisted here for everything else too: long-form reading, the menu, dates and fine print.
+: IBM Plex Sans by Mike Abbink and Bold Monday for IBM. It sets everything meant to be read at length, at 17 pixels.
+
+<p class="specimen specimen-mono" aria-hidden="true">IBM Plex Mono {}[] 0O 1lI</p>
+
+Data face
+: IBM Plex Mono, the same family's monospace. It sets code and every piece of metadata: the menu, dates, labels, tables and fine print.
 
 Licensing
-: Both under the SIL Open Font License 1.1
+: All three under the SIL Open Font License 1.1
 {{< /panel >}}
 
 {{< panel code="O&D-04" title="Chromatics" >}}
@@ -85,7 +90,7 @@ Clock
 : America/Chicago, which decides what day every post was written
 
 Payload
-: About 75 KB compressed for the front page, most of it the two fonts
+: About 100 KB compressed for the front page, most of it the four font files
 {{< /panel >}}
 
 {{< panel code="WSD-07" title="Surveillance" >}}
@@ -93,7 +98,7 @@ None. There are no analytics, no cookies, no tracking pixels, no comment forms a
 {{< /panel >}}
 
 {{< panel code="WSD-08" title="Wellness" >}}
-Text is set at no less than 16 pixels. Contrast is measured, not estimated. Images carry alternative text, headings follow a sensible order, and any animation on this page halts for visitors who have asked their system for reduced motion. The site reads correctly from 360 pixels wide upward.
+Reading text is set at 17 pixels. Contrast is measured, not estimated. Images carry alternative text, headings follow a sensible order, and any animation on this page halts for visitors who have asked their system for reduced motion. The site reads correctly from 360 pixels wide upward.
 {{< /panel >}}
 
 {{< panel code="WSD-09" title="Syndication" >}}
@@ -104,7 +109,7 @@ The [RSS feed](/index.xml) carries the latest 30 posts. Subscribe in any feed re
 - [Hugo](https://gohugo.io/), for compiling the archive
 - [Omarchy](https://omarchy.org/), for the wordmark's inspiration and a calm place to work
 - The [Lumon theme](https://github.com/OldJobobo/omarchy-lumon-theme) by OldJobobo, for every color
-- [Geist](https://github.com/vercel/geist-font) and [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono), for the letters, and omarchy.org for the way they are paired
+- [Space Grotesk](https://github.com/floriankarsten/space-grotesk) and [IBM Plex](https://github.com/IBM/plex), for the letters
 - *Severance*, for the mood. This site is not affiliated with Lumon Industries, which does not exist.
 {{< /panel >}}
 
