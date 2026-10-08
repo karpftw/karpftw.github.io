@@ -67,7 +67,7 @@ The palette is the Lumon theme for Omarchy: navy voids, fluorescent edges and st
 {{< /panel >}}
 
 {{< panel code="O&D-05" title="Sigil" >}}
-The wordmark in the corner is not a font. It is hand-plotted on a 97 × 19 grid, one cell at a time, and shipped as inline SVG at exactly twice its native size so no pixel is ever split. Its letterforms follow the Omarchy wordmark; the p, e, t and x were drafted from scratch to match. The p and r descend below the baseline by design, following review.
+The wordmark in the corner is set in the display face, then converted to outlines so it never waits on a font. It passes through a globe of eight horizontal lines, each exactly two pixels tall and colored by the same five bands as the bar above it, coolest at the bottom. The globe has no surface. It does not need one.
 {{< /panel >}}
 
 {{< panel code="WSD-06" title="Transmission" >}}
@@ -107,7 +107,7 @@ The [RSS feed](/index.xml) carries the latest 30 posts. Subscribe in any feed re
 
 {{< panel code="ACK-10" title="Acknowledgments" >}}
 - [Hugo](https://gohugo.io/), for compiling the archive
-- [Omarchy](https://omarchy.org/), for the wordmark's inspiration and a calm place to work
+- [Omarchy](https://omarchy.org/), for a calm place to work
 - The [Lumon theme](https://github.com/OldJobobo/omarchy-lumon-theme) by OldJobobo, for every color
 - [Archivo](https://github.com/Omnibus-Type/Archivo), [Inter](https://github.com/rsms/inter) and [IBM Plex](https://github.com/IBM/plex), for the letters
 - *Severance*, for the mood. This site is not affiliated with Lumon Industries, which does not exist.

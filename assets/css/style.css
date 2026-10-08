@@ -65,9 +65,9 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Full-width bar across the top: the wordmark's five gradient bands (#logo-gradient
-   in _partials/logo.html) at the logo's 2× size, so 38px tall in 8px steps. Keep the
-   colors and stops in step with the logo. */
+/* Full-width bar across the top: five Lumon blue bands, 38px tall in 8px steps.
+   The wordmark's globe lines (_partials/logo.html) use the same five colors; keep
+   them in step. */
 body::before {
   content: "";
   position: fixed;   /* stays put while the page scrolls under it; body padding-top clears it */
@@ -103,15 +103,16 @@ a:hover { color: var(--link-hover); }
   .colophon { grid-column: 2; }
 }
 
-/* Pixel-grid wordmark in the style of the Omarchy logo, with a stepped Lumon gradient; drawn in _partials/logo.html */
+/* Wordmark: HYPERTEXT outlined from Archivo Expanded 700, set through a globe of
+   horizontal lines in the top bar's bands; drawn in _partials/logo.html */
 .site-name {
   display: block;
-  width: 194px;   /* exactly 2× the 97-unit grid so pixels stay crisp */
+  width: 194px;   /* the SVG's own pixel size, so the 2px lines land on whole pixels */
   max-width: 100%;
   color: var(--ink);
   text-decoration: none;
 }
-.site-name:hover .logo { filter: brightness(1.2); }   /* the logo is a fixed gradient, so hover brightens it */
+.site-name:hover { color: var(--link-hover); }   /* the letters are currentColor; the lines keep their bands */
 .site-name .logo { display: block; width: 100%; height: auto; }
 .masthead nav { margin-top: 1.25rem; }
 .masthead nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; }
