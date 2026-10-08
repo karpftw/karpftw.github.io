@@ -19,9 +19,12 @@
    faces (licenses in static/fonts/). Lumon's own faces are commercial, so each
    has a free stand-in:
    - Archivo at its widest (--display) for Manifold Extended, the corporate face:
-     titles in spaced capitals, headings, menu and every small label.
+     titles in spaced capitals, headings, menu, every small label, and the
+     metadata (dates, pager, footer, file lines, field labels, archive cells) at
+     13px, weight 500.
    - Inter (--sans) for Forma DJR, the neo-grotesk of the handbook: reading text at 17px.
-   - IBM Plex Mono (--mono) for terminal output: code, dates, tables, fine print. */
+   - IBM Plex Mono (--mono) for terminal output: code, captions, the dial-up and
+     MDR screens, menu keys and the ASCII portrait. */
 @font-face {
   font-family: "Archivo Expanded";
   src: url("/fonts/archivo-latin.woff2") format("woff2");
@@ -139,7 +142,7 @@ a:hover { color: var(--link-hover); }
 .permalink:hover { color: var(--link-hover) !important; }
 /* Pixel arrow drawn on a 5×5 grid; scaled with the link-post title */
 .permalink .arrow { width: 0.5em; height: 0.5em; vertical-align: 0.1em; }
-.dateline { margin: 0.6rem 0 1.4rem; color: var(--muted); font-family: var(--mono); font-size: 13px; letter-spacing: .02em; }
+.dateline { margin: 0.6rem 0 1.4rem; color: var(--muted); font-family: var(--display); font-weight: 500; font-size: 13px; letter-spacing: .02em; font-variant-numeric: tabular-nums; }
 
 .prose > :first-child { margin-top: 0; }
 .prose p, .prose ul, .prose ol, .prose blockquote, .prose pre, .prose figure { margin: 0 0 1.6em; }
@@ -175,15 +178,15 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
 /* Simple lists (layouts/list.html) */
 .archive { list-style: none; padding: 0; margin: 0; }
 .archive li { display: flex; gap: 1rem; padding: 0.25rem 0; }
-.archive time { flex: 0 0 3.75rem; color: var(--muted); font-family: var(--mono); font-size: 13px; line-height: 2.1; }
+.archive time { flex: 0 0 3.75rem; color: var(--muted); font-family: var(--display); font-weight: 500; font-size: 13px; font-variant-numeric: tabular-nums; line-height: 2.1; }
 
-.pager { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 14px; }
-.colophon { color: var(--muted); font-family: var(--mono); font-size: 13px; }
+.pager { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); font-family: var(--display); font-weight: 500; font-size: 13px; letter-spacing: .02em; }
+.colophon { color: var(--muted); font-family: var(--display); font-weight: 500; font-size: 13px; letter-spacing: .02em; }
 .colophon p { margin: 0; }
 
 /* Colophon (layouts/colophon.html): BBS session meets Macrodata Refinement.
    Decorative pieces are aria-hidden; all animation stops under reduced motion. */
-.colophon-file, .file-line { margin: 0.5rem 0 0; color: var(--muted); font-family: var(--mono); font-size: 13px; }
+.colophon-file, .file-line { margin: 0.5rem 0 0; color: var(--muted); font-family: var(--display); font-weight: 500; font-size: 13px; letter-spacing: .02em; }
 
 .handshake {
   margin: 0 0 2rem;
@@ -256,7 +259,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
 
 .panel dl { display: grid; grid-template-columns: 10rem 1fr; margin: 1.1rem 0; }
 .panel dt, .panel dd { margin: 0; padding: 0.5rem 0; border-top: 1px dashed var(--rule); }
-.panel dt { color: var(--muted); font-family: var(--mono); font-size: 14px; line-height: 1.9; padding-right: 1rem; }
+.panel dt { color: var(--muted); font-family: var(--display); font-weight: 500; font-size: 13px; letter-spacing: .02em; line-height: 2.15; padding-right: 1rem; }
 @media (max-width: 34rem) {
   .panel dl { grid-template-columns: 1fr; }
   .panel dd { border-top: 0; padding-top: 0.1rem; }
@@ -306,7 +309,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
 .file-list { width: 100%; border-collapse: collapse; }
 .file-list th, .file-list td { padding: 0.45rem 0.5rem; text-align: left; vertical-align: baseline; border-top: 1px dashed var(--rule); }
 .file-list thead th { border-top: 0; padding-top: 0; color: var(--muted); font-family: var(--display); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; line-height: 1; }
-.file-list td:not(.col-title) { color: var(--muted); font-family: var(--mono); font-size: 13px; white-space: nowrap; }
+.file-list td:not(.col-title) { color: var(--muted); font-family: var(--display); font-weight: 500; font-size: 13px; letter-spacing: .02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .file-list .col-type { color: var(--link); }
 .file-list .col-title { width: 100%; }
 .file-list .col-title a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--rule); }
@@ -343,7 +346,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
 }
 .dossier-fields { display: grid; grid-template-columns: 10rem 1fr; margin: 0; }
 .dossier-fields dt, .dossier-fields dd { margin: 0; padding: 0.5rem 0; border-top: 1px dashed var(--rule); }
-.dossier-fields dt { color: var(--muted); font-family: var(--mono); font-size: 14px; line-height: 1.9; padding-right: 1rem; }
+.dossier-fields dt { color: var(--muted); font-family: var(--display); font-weight: 500; font-size: 13px; letter-spacing: .02em; line-height: 2.15; padding-right: 1rem; }
 @media (max-width: 34rem) {
   .dossier-fields { grid-template-columns: 1fr; }
   .dossier-fields dd { border-top: 0; padding-top: 0.1rem; }
