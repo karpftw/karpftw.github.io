@@ -41,20 +41,20 @@ Version control
 {{< panel code="O&D-03" title="Typography" >}}
 Three typefaces are in service, all self-hosted, so no font foundry is told when you visit. Each has one job.
 
-<p class="specimen specimen-display" aria-hidden="true">Space Grotesk 0123456789</p>
+<p class="specimen specimen-display" aria-hidden="true">Archivo 0123456789</p>
 
 Display face
-: Space Grotesk by Florian Karsten, a geometric grotesque with a technical edge. It sets post and page titles and headings.
+: Archivo by Omnibus-Type, drawn at its widest setting and standing in for Manifold Extended, Lumon's corporate face. It sets titles in spaced capitals, headings, the menu and every label.
 
-<p class="specimen specimen-sans" aria-hidden="true">IBM Plex Sans · Refined text</p>
+<p class="specimen specimen-sans" aria-hidden="true">Inter · Refined text</p>
 
 Text face
-: IBM Plex Sans by Mike Abbink and Bold Monday for IBM. It sets everything meant to be read at length, at 17 pixels.
+: Inter by Rasmus Andersson, a neo-grotesque in the spirit of Forma, the face of the Lumon handbook. It sets everything meant to be read at length, at 17 pixels.
 
 <p class="specimen specimen-mono" aria-hidden="true">IBM Plex Mono {}[] 0O 1lI</p>
 
 Data face
-: IBM Plex Mono, the same family's monospace. It sets code and every piece of metadata: the menu, dates, labels, tables and fine print.
+: IBM Plex Mono by Mike Abbink and Bold Monday for IBM, the terminal readout. It sets code, dates, tables and fine print.
 
 Licensing
 : All three under the SIL Open Font License 1.1
@@ -109,7 +109,7 @@ The [RSS feed](/index.xml) carries the latest 30 posts. Subscribe in any feed re
 - [Hugo](https://gohugo.io/), for compiling the archive
 - [Omarchy](https://omarchy.org/), for the wordmark's inspiration and a calm place to work
 - The [Lumon theme](https://github.com/OldJobobo/omarchy-lumon-theme) by OldJobobo, for every color
-- [Space Grotesk](https://github.com/floriankarsten/space-grotesk) and [IBM Plex](https://github.com/IBM/plex), for the letters
+- [Archivo](https://github.com/Omnibus-Type/Archivo), [Inter](https://github.com/rsms/inter) and [IBM Plex](https://github.com/IBM/plex), for the letters
 - *Severance*, for the mood. This site is not affiliated with Lumon Industries, which does not exist.
 {{< /panel >}}
 
