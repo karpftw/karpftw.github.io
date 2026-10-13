@@ -46,10 +46,10 @@ Three typefaces are in service, all self-hosted, so no font foundry is told when
 Display face
 : Archivo by Omnibus-Type, drawn at its widest setting and standing in for Manifold Extended, Lumon's corporate face. It sets titles in spaced capitals, headings, the menu and every label.
 
-<p class="specimen specimen-sans" aria-hidden="true">Inter · Refined text</p>
+<p class="specimen specimen-sans" aria-hidden="true">Instrument Sans · Refined text</p>
 
 Text face
-: Inter by Rasmus Andersson, a neo-grotesque in the spirit of Forma, the face of the Lumon handbook. It sets everything meant to be read at length, at 17 pixels.
+: Instrument Sans by Rodrigo Fuenzalida for Instrument, a crisp neo-grotesque in the spirit of Forma, the face of the Lumon handbook. It sets everything meant to be read at length, at 18 pixels.
 
 <p class="specimen specimen-mono" aria-hidden="true">IBM Plex Mono {}[] 0O 1lI</p>
 
@@ -98,7 +98,7 @@ None. There are no analytics, no cookies, no tracking pixels, no comment forms a
 {{< /panel >}}
 
 {{< panel code="WSD-08" title="Wellness" >}}
-Reading text is set at 17 pixels. Contrast is measured, not estimated. Images carry alternative text, headings follow a sensible order, and any animation on this page halts for visitors who have asked their system for reduced motion. The site reads correctly from 360 pixels wide upward.
+Reading text is set at 18 pixels. Contrast is measured, not estimated. Images carry alternative text, headings follow a sensible order, and any animation on this page halts for visitors who have asked their system for reduced motion. The site reads correctly from 360 pixels wide upward.
 {{< /panel >}}
 
 {{< panel code="WSD-09" title="Syndication" >}}
@@ -109,7 +109,7 @@ The [RSS feed](/index.xml) carries the latest 30 posts. Subscribe in any feed re
 - [Hugo](https://gohugo.io/), for compiling the archive
 - [Omarchy](https://omarchy.org/), for a calm place to work
 - The [Lumon theme](https://github.com/OldJobobo/omarchy-lumon-theme) by OldJobobo, for every color
-- [Archivo](https://github.com/Omnibus-Type/Archivo), [Inter](https://github.com/rsms/inter) and [IBM Plex](https://github.com/IBM/plex), for the letters
+- [Archivo](https://github.com/Omnibus-Type/Archivo), [Instrument Sans](https://github.com/Instrument/instrument-sans) and [IBM Plex](https://github.com/IBM/plex), for the letters
 - *Severance*, for the mood. This site is not affiliated with Lumon Industries, which does not exist.
 {{< /panel >}}
 
