@@ -296,6 +296,21 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
   .file-list .col-size { display: none; }
 }
 
+/* ASCII art (_shortcodes/picard.html), scaled so its widest line fills the panel */
+.panel-body:has(> .ascii-art) { container-type: inline-size; }
+.ascii-art {
+  margin: 0;
+  padding: 0;
+  background: none;
+  overflow: hidden;
+  color: var(--link);
+  font-family: var(--mono);
+  font-size: min(13px, calc(100cqi / 46.2));   /* widest line is 77 columns × 0.6em advance */
+  line-height: 1.15;
+  font-variant-ligatures: none;   /* keeps "||", "==", "--" apart in any monospace with ligatures */
+  white-space: pre;
+}
+
 /* About page (layouts/about.html) */
 .about-picture { margin: 1.75rem 0 2rem; }
 .about-picture img { display: block; width: 100%; height: auto; }

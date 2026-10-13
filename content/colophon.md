@@ -6,6 +6,10 @@ layout: colophon
 
 This page documents how hypertext.dev is written, built and published.
 
+{{< panel code="00" title="Captain on deck" >}}
+{{< picard >}}
+{{< /panel >}}
+
 {{< panel code="01" title="Substrate" >}}
 Every word on this site is written on a single x86-64 workstation running Arch Linux, a rolling release that is never finished and never breaks the same way twice. The desktop is Omarchy, tiled by Hyprland, so no window ever overlaps another.
 
