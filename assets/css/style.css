@@ -193,7 +193,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
 /* Colophon (layouts/colophon.html): framed panels and a BBS status bar.
    Decorative pieces are aria-hidden; all animation stops under reduced motion. */
 .colophon-head { margin-bottom: 1.75rem; }
-.colophon-file, .file-line { margin: 0.5rem 0 0; color: var(--muted); font-family: var(--display); font-weight: 500; font-size: 13px; letter-spacing: .02em; }
+.file-line { margin: 0.5rem 0 0; color: var(--muted); font-family: var(--display); font-weight: 500; font-size: 13px; letter-spacing: .02em; }
 
 .handshake {
   margin: 0 0 2rem;
