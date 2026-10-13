@@ -1,26 +1,12 @@
-{{/* Colophon page: a Severance refinement terminal with a BBS status bar.
+{{/* Colophon page: framed panels with a BBS status bar.
      Text lives in content/colophon.md; this template adds the decorative chrome. */}}
 {{ define "main" }}
 <article class="colophon-page">
 
   <header class="colophon-head">
     <h1 class="page-title">{{ .Title }}</h1>
-    <p class="colophon-file">FILE: COLOPHON.TXT · REV {{ .Lastmod.Format "2006.01.02" }} · CLEARANCE: PUBLIC</p>
+    <p class="colophon-file">FILE: COLOPHON.TXT · REV {{ .Lastmod.Format "2006.01.02" }}</p>
   </header>
-
-  {{/* Decorative digit field; a few "scary" numbers drift, as in Macrodata Refinement */}}
-  <div class="mdr-field" aria-hidden="true">
-    {{- range $i := seq 0 71 -}}
-      {{- $d := mod (mod (add (mul $i $i 31) (mul $i 17) 7) 97) 10 -}}
-      <span{{ if eq (mod (add (mul $i 5) 3) 11) 0 }} class="scary"{{ end }}>{{ $d }}</span>
-    {{- end -}}
-  </div>
-
-  <div class="mdr-bins" role="img" aria-label="Refinement complete: all four tempers at 100 percent">
-    {{- range slice "WO" "FC" "DR" "MA" }}
-    <div class="bin"><span class="bin-label">{{ . }}</span><span class="bin-bar"><span></span></span><span class="bin-pct">100%</span></div>
-    {{- end }}
-  </div>
 
   <div class="prose colophon-body">
     {{ .Content }}

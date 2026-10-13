@@ -1,4 +1,4 @@
-{{/* 404: a dropped BBS connection on the severed floor. No JavaScript, so the
+{{/* 404: a dropped BBS connection. No JavaScript, so the
      requested path is not echoed back. Shares the .panel and .status-bar
      styles with the colophon. */}}
 {{ define "main" }}
@@ -13,12 +13,12 @@ NO CARRIER<span class="cursor"></span></pre>
 
   <header>
     <h1 class="page-title">File not found</h1>
-    <p class="file-line">ERROR 404 · FILE SEVERED · CLEARANCE: NONE</p>
+    <p class="file-line">ERROR 404 · NO SUCH FILE</p>
   </header>
 
   <div class="prose">
-    <p>The file you requested is not on this floor. It may have been moved, renamed or retired, or it may belong to your outie. Either way, your innie cannot retrieve it.</p>
-    <p>Please do not be alarmed. The work remains mysterious and important.</p>
+    <p>The page you requested isn’t here. It may have been moved, renamed or retired, or the link may have a typo.</p>
+    <p>Try one of the pages below instead.</p>
   </div>
 
   <section class="panel">
@@ -34,7 +34,7 @@ NO CARRIER<span class="cursor"></span></pre>
   <p class="status-bar" aria-hidden="true">
     <span>NO CARRIER</span><span>0 BPS</span><span>NODE 1</span><span>TIME LEFT: 00:00</span>
   </p>
-  <p class="error-signoff">Please enjoy each error equally.</p>
+  <p class="error-signoff">Connection closed.</p>
 
 </article>
 {{ end }}
