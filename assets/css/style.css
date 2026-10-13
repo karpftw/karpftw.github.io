@@ -25,7 +25,7 @@
    - Instrument Sans (--sans) for Forma DJR, the neo-grotesk of the Lumon handbook:
      reading text at 18px.
    - IBM Plex Mono (--mono) for terminal output: code, captions, the dial-up
-     block, menu keys and the ASCII portrait. */
+     block and the menu keys. */
 @font-face {
   font-family: "Archivo Expanded";
   src: url("/fonts/archivo-latin.woff2") format("woff2");
@@ -296,36 +296,9 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
   .file-list .col-size { display: none; }
 }
 
-/* About page profile (layouts/dossier.html) */
-.dossier-card { display: grid; gap: 1.25rem; }
-.portrait-frame {
-  margin: 0;
-  padding: 0.75rem;
-  container-type: inline-size;
-  border: 2px solid var(--rule);
-  /* faint scan lines behind the portrait only, never behind reading text */
-  background: repeating-linear-gradient(to bottom, var(--code-bg) 0 2px, transparent 2px 4px);
-}
-.portrait {
-  margin: 0;
-  padding: 0;
-  background: none;
-  overflow: hidden;
-  color: var(--link);
-  font-family: var(--mono);
-  font-size: min(16px, calc(100cqi / 34.5));   /* widest line is 57 columns × 0.6em advance */
-  line-height: 1.2;
-  font-variant-ligatures: none;   /* keeps "==", "--", "::" apart in any monospace with ligatures */
-  white-space: pre;
-}
-.dossier-fields { display: grid; grid-template-columns: 10rem 1fr; margin: 0; }
-.dossier-fields dt, .dossier-fields dd { margin: 0; padding: 0.5rem 0; border-top: 1px dashed var(--rule); }
-.dossier-fields dt { color: var(--muted); font-family: var(--display); font-weight: 500; font-size: 13px; letter-spacing: .02em; line-height: 2.15; padding-right: 1rem; }
-@media (max-width: 34rem) {
-  .dossier-fields { grid-template-columns: 1fr; }
-  .dossier-fields dd { border-top: 0; padding-top: 0.1rem; }
-}
-.redacted { display: inline-block; min-width: 9ch; background: var(--rule); color: transparent; user-select: none; line-height: 1.2; }
+/* About page (layouts/about.html) */
+.about-picture { margin: 1.75rem 0 2rem; }
+.about-picture img { display: block; width: 100%; height: auto; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; }

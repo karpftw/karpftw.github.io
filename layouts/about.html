@@ -1,0 +1,14 @@
+{{/* About page: a picture above the page content. The PNG in assets/images/ is
+     served as WebP at its full 1024px so it stays sharp on high-DPI screens. */}}
+{{ define "main" }}
+<article class="post about">
+  <h1 class="page-title">{{ .Title }}</h1>
+  {{ with resources.Get "images/picard.png" }}
+    {{ $img := .Process "webp q85" }}
+    <figure class="about-picture">
+      <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="Pixel-art Captain Jean-Luc Picard facepalming on the bridge of the Enterprise">
+    </figure>
+  {{ end }}
+  <div class="prose">{{ .Content }}</div>
+</article>
+{{ end }}
