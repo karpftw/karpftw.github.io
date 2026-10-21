@@ -11,6 +11,6 @@ Lorem repellendus odio cupiditate est quibusdam. Sunt quo dolor facilis cum sit 
 > And what is the markdown code for a black quote?
 > Sometimes, people don't really even know.
 
-'''python
+```python
 def just_another_func()
 ```
